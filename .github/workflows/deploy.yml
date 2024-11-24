@@ -5,35 +5,35 @@ on:
     branches:
       - main  # Adjust to the branch you want to trigger the workflow
 
-jobs:
-  test-variables:
-    runs-on: ubuntu-latest
-    steps:
-      # Step 1: Checkout the code
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Step 2: Set a variable using outputs
-      - name: Step 2 - Set Variable
-        id: set-variable
-        run: echo "##[set-output name=myVariable;]This is my variable value"
-
-      # Step 3: Use the variable set in Step 2
-      - name: Step 3 - Use Variable
-        run: echo "The variable value is: ${{ steps.set-variable.outputs.myVariable }}"
-
-
 # jobs:
 #   test-variables:
 #     runs-on: ubuntu-latest
 #     steps:
+#       # Step 1: Checkout the code
 #       - name: Checkout Code
 #         uses: actions/checkout@v3
 
-#       # Step 2: Set an environment variable
-#       - name: Step 2 - Set Environment Variable
-#         run: echo "MY_ENV_VAR=This is my environment variable" >> $GITHUB_ENV
+#       # Step 2: Set a variable using outputs
+#       - name: Step 2 - Set Variable
+#         id: set-variable
+#         run: echo "##[set-output name=myVariable;]This is my variable value"
 
-#       # Step 3: Use the environment variable
-#       - name: Step 3 - Use Environment Variable
-#         run: echo "The environment variable value is: $MY_ENV_VAR"
+#       # Step 3: Use the variable set in Step 2
+#       - name: Step 3 - Use Variable
+#         run: echo "The variable value is: ${{ steps.set-variable.outputs.myVariable }}"
+
+
+jobs:
+  test-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set an environment variable
+      - name: Step 2 - Set Environment Variable
+        run: echo "MY_ENV_VAR=This is my environment variable" >> $GITHUB_ENV
+
+      # Step 3: Use the environment variable
+      - name: Step 3 - Use Environment Variable
+        run: echo "The environment variable value is: $MY_ENV_VAR"
