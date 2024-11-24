@@ -31,9 +31,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set Environment Variable
-        # shell: pwsh  # Specify the shell as PowerShell
+        shell: cmd  # Specify the shell as PowerShell
         run: echo "MY_VAR=Hello World" >> $env.GITHUB_ENV  # Use PowerShell syntax to set the environment variable
 
       - name: Use Environment Variable
-        # shell: pwsh  # Specify the shell as PowerShell
+        shell: cmd  # Specify the shell as PowerShell
         run: echo "The value of MY_VAR is $MY_VAR"  # Access the variable using PowerShell syntax
