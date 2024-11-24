@@ -34,4 +34,4 @@ jobs:
         run: echo "MY_VAR=Hello World" >> $GITHUB_ENV
 
       - name: Use Environment Variable
-        run: echo "The value of MY_VAR is: ${{ env.MY_VAR }}"   
+        run: echo "The value of MY_VAR is ${{ env.MY_VAR }}"   
