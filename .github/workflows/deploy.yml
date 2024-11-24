@@ -36,4 +36,4 @@ jobs:
 
       - name: Use Environment Variable
         # shell: pwsh  # Specify the shell as PowerShell
-        run: echo "The value of MY_VAR is $env.MY_VAR"  # Access the variable using PowerShell syntax
+        run: echo "The value of MY_VAR is $MY_VAR"  # Access the variable using PowerShell syntax
