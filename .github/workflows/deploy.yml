@@ -25,13 +25,15 @@ on:
 
 jobs:
   test-variables:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Use a Windows runner
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set Environment Variable
-        run: echo "MY_VAR=Hello World" >> $GITHUB_ENV
+        shell: pwsh  # Specify the shell as PowerShell
+        run: echo "MY_VAR=Hello World" >> $env:GITHUB_ENV  # Use PowerShell syntax to set the environment variable
 
       - name: Use Environment Variable
-        run: echo "The value of MY_VAR is ${{ env.MY_VAR }}"   
+        shell: pwsh  # Specify the shell as PowerShell
+        run: echo "The value of MY_VAR is $env:MY_VAR"  # Access the variable using PowerShell syntax
